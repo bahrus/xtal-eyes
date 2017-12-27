@@ -70,6 +70,10 @@
                 console.log(_this);
                 return _this._obj[name] === null;
             });
+            if (this._filteredPropertyNames.length === 0) {
+                const constName = this._constantName.replace('window[', '').replace(']', '');
+                document.head.dataset[constName] = this._constantName;
+            }
             console.log({
                 'filteredPropNames': this._filteredPropertyNames
             });
