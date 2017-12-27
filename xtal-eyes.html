@@ -1,36 +1,3 @@
+<!DOCTYPE html>
 <link rel="import" href="../polymer/polymer-element.html">
-
-<dom-module id="xtal-eyes">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]!</h2>
-  </template>
-
-  <script>
-    /**
-     * `xtal-eyes`
-     * Create a &#34;contract&#34; of required properties before publishing the object
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
-    class XtalEyes extends Polymer.Element {
-      static get is() { return 'xtal-eyes'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'xtal-eyes'
-          }
-        };
-      }
-    }
-
-    window.customElements.define(XtalEyes.is, XtalEyes);
-  </script>
-</dom-module>
+<script src="xtal-eyes.js"></script>

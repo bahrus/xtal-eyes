@@ -16,13 +16,23 @@
       <style is="custom-style" include="demo-pages-shared-styles">
       </style>
     </custom-style>
+    <script>
+      const myContractName = '_myContractName';
+    </script>
   </head>
   <body>
     <div class="vertical-section-container centered">
       <h3>Basic xtal-eyes demo</h3>
       <demo-snippet>
         <template>
-          <xtal-eyes></xtal-eyes>
+          <xtal-eyes>
+            <script>
+              window[myContractName] = {
+                  prop1: null,
+                  prop2: null
+              }
+            </script>
+          </xtal-eyes>
         </template>
       </demo-snippet>
     </div>
