@@ -4,17 +4,21 @@ Create a &#34;contract&#34; of required properties before publishing the object
 
 As we speak, modern browsers are shipping native support for:
 
-1) ES6 modules
-2) Dynamic imports, 
-3) Async/Await, 
+1) ES6 modules.
+2) Dynamic imports. 
+3) Async/Await. 
 
-This is likely to uhser in an exciting new chapter of JavaScript development.  The ability to write simple, clean JavaScript with no build steps, without worrying about conflicting global variables; the ability to asynchronously load resources with simple statements -- these will be a real boon for development.
+This is likely to uhser in an exciting new chapter of JavaScript development.  The ability to write simple, clean JavaScript with no build steps, without worrying about conflicting global variables, even conflicting versions of the same library; the ability to asynchronously load resources with simple statements -- these will be a real boon for development.
 
 So now that we have no excuse for accidentally creating global variables, do global variables still have a place?  The popularity of Redux, and the formal introduction of [a universal global object](https://github.com/tc39/proposal-global) strongly argues that the answer is yes.
 
-\<xtal-eyes\> allows you to define a global constant mutable object, but to specify some field names that must be populated before the constant is considered "complete" and ready for processing.
+\<xtal-eyes\> allows you to define a global constant mutable object, but to specify some empty field / property names during initialization that must be populated before the constant is considered "complete" and ready for processing.
 
-This seemingly strange requirement came out of a desire to provide a way of defining loosely coupled mixin's for a web component.  The examples in this document will focus on that problem, but I suspect other scenarios may also arise where this compoenent could be useful.
+This seemingly strange requirement came out of a desire to provide a way of defining loosely coupled mixin's for a web component.  The examples in this document will focus on that problem, but I suspect a smattering of other scenarios may also arise where this compoenent could be useful.
+
+Why not use [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)?  If Promise.all suits your needs, by all means use it!  
+
+But what if the code used to define the various properties of the contract needs to be separated -- first and foremost from the code that needs to be triggered when all the properties have been set? What if even setting the properties themselves might be convenient to do via a loosely coupled process?  That's the scenario \<xtal-eyes\> strives to help with.
 
 ## Step 1
 
