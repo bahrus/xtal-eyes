@@ -1,0 +1,9 @@
+{
+  "name": "xtal-eyes",
+  "version": "0.0.0",
+  "description": "Create a \"contract\" of required properties before publishing the contract ",
+  "main": "xtal-eyes.js",
+  "repository": "https://github.com/bahrus/xtal-eyes",
+  "author": "bahrus <anderson.bruce.b@gmail.com>",
+  "license": "MIT"
+}
