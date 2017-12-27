@@ -39,10 +39,6 @@
             this._originalPropertyNames = Object.getOwnPropertyNames(this._obj);
             this._filteredPropertyNames = this._originalPropertyNames;
             this._originalPropertyNames.forEach(name => {
-                // console.log({
-                //     name: name,
-                //     val: this._obj[name]
-                // });
                 const currentVal = this._obj[name];
                 Object.defineProperty(this._obj, name, {
                     get: this.getter(name),
@@ -67,16 +63,12 @@
         validateObject() {
             const _this = this;
             this._filteredPropertyNames = this._filteredPropertyNames.filter(name => {
-                console.log(_this);
                 return _this._obj[name] === null;
             });
             if (this._filteredPropertyNames.length === 0) {
                 const constName = this._constantName.replace('window[', '').replace(']', '');
                 document.head.dataset[constName] = this._constantName;
             }
-            console.log({
-                'filteredPropNames': this._filteredPropertyNames
-            });
         }
     }
     XtalEyes.__cont = '__cont';
