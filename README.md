@@ -51,7 +51,7 @@ In the body of the web page, add the \<xtal-eyes\> element with some JavaScript 
         window[myContractName] = {
             prop1: null,
             prop2: null
-        }
+        };
     </script>
 </xtal-eyes>
 ```
@@ -64,11 +64,45 @@ Entities can use the mutation observer to be notified when this attribute has be
 
 ##  To do:  Loading utility
 
-\<xtal-eyes\> contains a boolean property called "loadResources".  If set to true, given the markup above, xtal-eyes looks for link preload tags with the group attribute:
+Suppose we have a web component called "my-chart" that relies on some third party resources.  And we want to preload those resources ahead of time, using the \<link rel="preload"\> tag.  So for example, we could add these tags:  The additional attributes class and data-name are optional (and we will see later how they are used.)
 
 ```html
-<link rel="preload" as="script" href-"//somewhere/d3.js" data-group="myContractName" data-name="prop1" data-test="d3">
-<link rel="preload" as="style" href="//over/chartStyles.css" data-group="myContractName" data-name="prop2">
+<link rel="preload" as="script" href-"//somewhere/d3.js" class="myChartDependencies" data-name="d3">
+<link rel="preload" as="script" href-"//over/chartLib.js" class="myChartDependencies" data-name="chart_lib">
+<link rel="preload" as="style" href="//theRainbow/chartStyles.css" class="myChartDependencies" data-name="default_styles">
+```
+
+The use of class and data-name is not required, but we will see how it gets used now:
+
+We can now add some code in the head.  Note the use of the "load" static utility function that comes with \<xtal-eyes\>:
+
+```html
+<head>
+    <script>
+        const myChartDependencies = '_myChartDependencies';
+        customElements.whenDefined('XtalEyes').then(() =>{
+            const xtalEyes = customElements.get('XtalEyes');
+            xtalEyes.load(document.head.querySelectorAll('.myChartDependencies')).then(links =>{
+                links.foreach(link =>{
+                    window[myChartDependencies][link.dataset.name] = link;
+                })
+            })
+            
+        })
+    </script>
+</head>
+<body>
+<xtal-eyes>
+    <script>
+        window[myChartDependencies] = {
+            d3: null,
+            chart_lib: null,
+
+        };
+    </script>
+</xtal-eyes>
+...
+</body>
 ```
 
 \<xtal-eyes\> searches for such tags, and creates live import tags (import or script) so that the resources get loaded in memory. But it first checks if there is a data-test attribute, and if so, tests the expression to see if some other process may have already loaded the library.
