@@ -1,3 +1,9 @@
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/xtal-eyes)
+
+<a href="https://nodei.co/npm/xtal-eyes/"><img src="https://nodei.co/npm/xtal-eyes.png"></a>
+
+<img src="http://img.badgesize.io/https://unpkg.com/xtal-eyes@0.0.3/build/ES6/xtal-eyes.iife.js?compression=gzip">
+
 # xtal-eyes
 
 ## Purpose

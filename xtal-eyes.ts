@@ -72,16 +72,16 @@ export class XtalEyes extends XtallatX(HTMLElement) {
         window.addEventListener('popstate', e => {
             this.notifySrchParams();
         });
-        const originalPushState = window.history.pushState;
-        const boundPushState = originalPushState.bind(window.history);
-        window.history.pushState = (newState: any, title: string, URL: string) => {
-            boundPushState(newState, title, URL);
+        const oPS = window.history.pushState; //originalPushState
+        const bPS = oPS.bind(window.history); //boundPushState
+        history.pushState = (newState: any, title: string, URL: string) => {
+            bPS(newState, title, URL);
             this.notifySrchParams();
         }
-        const originalReplaceState = window.history.replaceState;
-        const boundReplaceState = originalReplaceState.bind(window.history);
-        window.history.replaceState = (newState: any, title: string, URL: string) => {
-            boundReplaceState(newState, title, URL);
+        const oRS = window.history.replaceState; //originalReplaceState
+        const bRS = oRS.bind(window.history); //boundReplaceState
+        history.replaceState = (newState: any, title: string, URL: string) => {
+            bRS(newState, title, URL);
             this.notifySrchParams();
         }
         this.notifySrchParams();
