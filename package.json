@@ -1,7 +1,7 @@
 {
   "name": "xtal-eyes",
   "version": "0.0.2",
-  "description": "tbd",
+  "description": "Provide a way to pass info to web page and/or web component",
   "main": "xtal-eyes.js",
   "dependencies": {
     "xtal-latx": "0.0.26"
