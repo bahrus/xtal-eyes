@@ -1,6 +1,6 @@
 {
   "name": "xtal-eyes",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Provide a way to pass info to web page and/or web component",
   "main": "xtal-eyes.js",
   "dependencies": {
