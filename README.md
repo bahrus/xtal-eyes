@@ -2,7 +2,7 @@
 
 <a href="https://nodei.co/npm/xtal-eyes/"><img src="https://nodei.co/npm/xtal-eyes.png"></a>
 
-<img src="http://img.badgesize.io/https://unpkg.com/xtal-eyes@0.0.3/build/ES6/xtal-eyes.iife.js?compression=gzip">
+<img src="http://img.badgesize.io/https://unpkg.com/xtal-eyes@0.0.4/build/ES6/xtal-eyes.iife.js?compression=gzip">
 
 # xtal-eyes
 
