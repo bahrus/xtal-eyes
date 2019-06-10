@@ -4,15 +4,15 @@
   "description": "Provide a way to pass info to web page and/or web component",
   "main": "xtal-eyes.js",
   "dependencies": {
-    "xtal-latx": "0.0.26"
+    "xtal-latx": "0.0.88"
   },
   "devDependencies": {
-    "@types/node": "^10.9.1",
-    "@webcomponents/webcomponentsjs": "^2.0.0",
-    "jiife": "0.0.4",
-    "tape": "^4.9.1",
-    "@types/tape": "4.2.32",
-    "xtal-test": "0.0.8"
+    "@types/node": "12.0.7",
+    "@webcomponents/webcomponentsjs": "2.2.10",
+    "jiife": "0.0.12",
+    "tape": "4.10.2",
+    "@types/tape": "4.2.33",
+    "xtal-test": "0.0.19"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
